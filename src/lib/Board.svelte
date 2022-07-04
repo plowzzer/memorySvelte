@@ -32,8 +32,12 @@
       if(selectedCards.length === 2){
         score.update(value => value + 1)
         if (selectedCards[0].icon === selectedCards[1].icon) {
-          cards[selectedCards[0].index].state = 'open'
-          cards[selectedCards[1].index].state = 'open'
+          wall.set(true)
+          setTimeout(() => {
+            cards[selectedCards[0].index].state = 'open'
+            cards[selectedCards[1].index].state = 'open'
+            wall.set(false)
+          }, 500); 
         } else {
           wall.set(true)
           setTimeout(() => {
@@ -68,6 +72,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    flex-grow: 1;
+    height: 100%;
   }
   .grid{
     display: flex;
@@ -75,26 +81,38 @@
     align-items: center;
     &.grid-4{
       flex: 1 0 25%;
+      .card {
+        width: 80px;
+        height: 80px;
+        font-size: 46px;
+        margin: 20px 0;
+      }
     }
     &.grid-6{
       flex: 1 0 15%;
+      .card {
+        width: 60px;
+        height: 60px;
+        font-size: 38px;
+        margin: 10px 0;
+      }
     }
   }
   .card {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 46px;
     background-color: #31485a;
     border-radius: 100%;
-    width: 80px;
-    height: 80px;
-    margin: 20px 0;
+    perspective: 1000px;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
     &.card-open{
       background-color: #bcceda;
     }
     &.card-selected{
       background-color: #ffa210 !important;
+      transform: scale(1.2);
     }
   }
 </style>

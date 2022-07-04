@@ -26,7 +26,7 @@
 <div id="game">
 	<Header />
 	
-	<div class="game">
+	<div class="board">
 		{#if boardSize}
 			<Board size={boardSize} class="board"/>
 		{:else}
@@ -35,7 +35,10 @@
 	</div>
 	
 	<div class="score">
-		{scoreMoves}
+		<div class="moves">
+			<span>Moves</span>
+			{scoreMoves}
+		</div>
 	</div>
 </div>
 
@@ -66,12 +69,16 @@
 		height: 100vh;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
+		// align-items: center;
 		justify-content: center;
+		align-items: stretch;
+
 	}
 
 	.board {
 		flex-grow: 1;
+		align-items: stretch;
+
 	}
 
 	.score {
@@ -79,5 +86,20 @@
 		max-width: 100%;
 		margin: auto;
 		padding: 30px;
+		display: flex;
+		gap: 20px;
+
+		.moves {
+			flex: 1;
+			background: #dfe6ec;
+      color: white;
+      border-radius: 12px;
+      text-align: center;
+      display: block;
+      font-weight: 700;
+      padding: 7px 14px;
+      font-size: 32px;
+			span{ font-size: 20px; display: block; }
+		}
 	}
 </style>

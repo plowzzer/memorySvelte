@@ -1,6 +1,4 @@
 <script>
-	import Button from '$lib/Button.svelte'
-
 	import {board, score, options} from '../store/main.js'
 
 	// let showModal = false
@@ -23,7 +21,7 @@
 	</div>
 
 	<nav>
-		<Button label="new game" func={handleNewGameButton}/>
+		<button on:click={handleNewGameButton}>New Game</button>
 	</nav>
 </header>
 
@@ -38,8 +36,23 @@
 		max-width: 100%;
 		margin: auto;
 
-		a {
-			color: #31485a;
+		.title {
+			a {
+				color: #182d3e;
+				font-weight: 700;
+				font-size: 32px;
+			}
+		}
+
+		button{
+			background-color: #ffa212;
+			color: white;
+			border: none;
+			border-radius: 100px;
+			font-weight: 400;
+			padding: 7px 21px;
+			font-size: 20px;
+			cursor:pointer;
 		}
 	}
 </style>
