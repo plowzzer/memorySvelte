@@ -88,7 +88,7 @@
 		padding: 30px;
 		display: flex;
 		gap: 20px;
-
+		box-sizing: border-box;
 		.moves {
 			flex: 1;
 			background: #dfe6ec;
